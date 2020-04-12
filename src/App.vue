@@ -9,6 +9,7 @@
       </p>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>这是dev02添加的代码</h1>
   </div>
 </template>
 
