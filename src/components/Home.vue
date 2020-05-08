@@ -10,7 +10,7 @@
         <el-container>
             <el-aside width="200px">
                             <el-menu
-                    default-active="2"
+                    :default-active="$route.path"
                     class="el-menu-vertical-demo"
                     background-color="#333744"
                     text-color="#fff"
@@ -23,7 +23,7 @@
                         <i :class="iconObj[item.id]"></i>
                         <span class="submenuItem">{{item.authName}}</span>
                     </template>
-                        <el-menu-item v-for="value in item.children" :key="value.id" :index="value.path">
+                        <el-menu-item v-for="value in item.children" :key="value.id" :index="'/' + value.path">
                             <template slot="title">
                                 <i class="el-icon-menu"></i>
                                 <span>{{value.authName}}</span>
@@ -55,6 +55,7 @@ export default {
   },
   created () {
     this.getMenuList()
+    console.log(this.$route.path)
   },
   methods: {
     async getMenuList () {
@@ -106,7 +107,7 @@ export default {
     .el-main {
         background-color: #EAEDF1;
         font-size: 30px;
-        font-weight: 700;
+        // font-weight: 700;
     }
     .submenuItem {
         margin: 10px;
